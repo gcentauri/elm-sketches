@@ -70,11 +70,43 @@ water =
              , Point2d ( 0, 400 )
              ]
         )
-    
+
+{-
+the following is done using just the main svg library which is
+just a straight API. it'd probably be nice to write some helper functions
+that might make composing this stuff a little nicer? Also I'm unsure
+how
+-}
+        
+sun : Svg Never
+sun =
+    Svg.circle [ Attributes.cx "400"
+               , Attributes.cy "100"
+               , Attributes.r "40"
+               , Attributes.fill "orange" ]
+        [ Svg.animate
+            [ Attributes.attributeName "r"
+            , Attributes.dur "3s"
+            , Attributes.values "30;42;50;42;30"
+            , Attributes.repeatCount "indefinite"
+            ] []
+        , Svg.animate
+            [ Attributes.attributeName "fill"
+            , Attributes.dur "500ms"
+            , Attributes.values "orange;yellow;;gold;goldenrod;darkorange"
+            , Attributes.repeatCount "indefinite"
+            ] []
+        ]
         
 sailBoat =
-    Svg.g [] [ leftSail, rightSail, hull ]
+    Svg.g [] [ leftSail, rightSail, hull
+             , Svg.animateMotion
+                   [ Attributes.begin "0s"
+                   , Attributes.dur "10s"
+                   , Attributes.path "M -500,0 L 0,0"
+                   ] []
+             ]
 
-main = Svg.svg [] [ sky, water, sailBoat ]
+main = Svg.svg [] [ sky, water, sun, sailBoat ]
 
 
