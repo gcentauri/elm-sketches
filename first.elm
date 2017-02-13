@@ -1,10 +1,8 @@
 import OpenSolid.Geometry.Types exposing (..)
 import OpenSolid.Point2d as Point2d
-import OpenSolid.Circle2d as Circle2d
 import OpenSolid.Svg as Svg
 import Svg exposing (Svg)
 import Svg.Attributes as Attributes
-import Html exposing (Html)
 
 leftSail : Svg Never
 leftSail =
