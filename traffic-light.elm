@@ -1,9 +1,9 @@
 import Html exposing (..)
-import Html exposing (..)
 import Html.Events exposing (onClick)
 import Svg exposing (Svg, svg, circle, rect)
-import Svg.Attributes exposing (x, y, width, height
-                               ,cx, cy, r, fill)
+import Svg.Attributes exposing ( x, y, width, height
+                               , cx, cy, r
+                               , fill)
 
 
 main =
